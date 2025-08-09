@@ -139,10 +139,10 @@ public class Stock {
                     continue;
                 }
 
-                // Setırı "/" işaretlerine göre 4 parçaya ayır
+                // Setırı "/" isaretlerine göre 4 parçaya ayır
                 String[] parts = line.split("/", 4);
                 if (parts.length < 4) {
-                    // Beklenen formatta değilse olduğu gibi ekle
+                    // gozlenien format deyilse saxla
                     newList.add(line);
                     continue;
                 }
@@ -157,7 +157,7 @@ public class Stock {
                 } else {
                     isFoundProduct = true;
 
-                    // Yeni fiyat formatı
+                    // Yeni qiymet formati
                     String updatedLine = String.format("%s/ %s/ %s/ %.2f AZN", kod, name, date, price);
 
                     newList.add(updatedLine);
