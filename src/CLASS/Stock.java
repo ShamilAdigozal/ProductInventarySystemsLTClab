@@ -73,6 +73,7 @@ public class Stock {
                     }
                     writer.close();
                     System.out.println("Uğurla yadda saxlanıldı");
+                    list.clear();
                 } else {
                     FileWriter writer = new FileWriter(file, true);
                     for (Map.Entry<String, Product> entry : list.entrySet()) {
@@ -86,6 +87,7 @@ public class Stock {
 
                     }
                     writer.close();
+                    list.clear();
 
                     System.out.println("Uğurla yadda saxlanıldı");
                 }
@@ -102,7 +104,7 @@ public class Stock {
             //db den melumatlari cekmek birinci db faylinin oldugu ve icinin bos olmadigi yolxlanilir daha sonra melumatlar cekilir
             Path path = Paths.get("DB15.txt");
             List<String> lines = Files.readAllLines(path);
-
+            //newList.clear();
             for (String line : lines) {
                 // Başlık ve çizgi setirlerini saxla
                 if (line.trim().isEmpty() || line.startsWith("Kod") || line.startsWith("-----")) {
