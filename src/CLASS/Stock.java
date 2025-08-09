@@ -57,24 +57,7 @@ public class Stock {
         try {
             if (list != null) {
                 File file = new File("DB15.txt");
-                if (file.createNewFile()) {
-                    FileWriter writer = new FileWriter(file);
-                    writer.write(String.format("%-5s %-20s %-20s %-10s%n", "Kod", "Adı", "Son İstifadə Tarixi", "Qiyməti"));
-                    writer.write(String.format("%-5s %-20s %-20s %-10s%n", "-----", "--------------------", "--------------------", "----------"));
-                    for (Map.Entry<String, Product> entry : list.entrySet()) {
-                        Food fd = (Food) entry.getValue();
-                        writer.write(String.format("%-5s %-20s %-20s %-10s%n",
-                                fd.getID() + "/",
-                                fd.getName() + "/",
-                                fd.getExpirationDate() + "/",
-                                String.format("%.2f AZN", fd.calculateInflationRate(fd.getPrice(),8 ))
-                        ));
 
-                    }
-                    writer.close();
-                    System.out.println("Uğurla yadda saxlanıldı");
-                    list.clear();
-                } else {
                     FileWriter writer = new FileWriter(file, true);
                     for (Map.Entry<String, Product> entry : list.entrySet()) {
                         Food fd = (Food) entry.getValue();
@@ -90,7 +73,7 @@ public class Stock {
                     list.clear();
 
                     System.out.println("Uğurla yadda saxlanıldı");
-                }
+
             } else {
                 System.out.println("Yaddaşa yazılacaq heç bir qeyd tapılmadı!!!");
             }
